@@ -10,11 +10,17 @@
     const { ipcRenderer } = require('electron');
     const ul = document.querySelector('ul');
 
+    // Add item
     ipcRenderer.on('item:add', (e, item) => {
       const li = document.createElement('li');
       const itemText = document.createTextNode(item);
       li.appendChild(itemText);
       ul.appendChild(li);
+    });
+
+    // Clear items
+    ipcRenderer.on('item:clear', e => {
+      ul.innerHTML = '';
     });
   </script>
 </body>
