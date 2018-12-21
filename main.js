@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow, Menu, ipcMain } = require('electron');
 const url = require('url');
 const path = require('path');
 
@@ -41,6 +41,13 @@ function createAddWindow() {
   // Garbage collection handle
   addWindow.on('close', () => addWindow = null);
 }
+
+// Catch item:add
+ipcMain.on('item:add', (e, item) => {
+  // console.log(item);
+  mainWindow.webContents.send('item:add', item);
+  addWindow.close();
+});
 
 // Create menu template
 const mainMenuTemplate = [
