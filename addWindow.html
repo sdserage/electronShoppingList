@@ -5,12 +5,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
-  <form>
+
+  <form class="container">
     <label style="display: flex; flex-direction: column;">
       Enter Item
       <input type="text" id="item" autofocus />
     </label>
-    <button type="submit">Add Item</button>
+    <button class="btn waves-effect waves-light" type="submit">Add Item</button>
   </form>
   <script>
     const { ipcRenderer } = require('electron');
